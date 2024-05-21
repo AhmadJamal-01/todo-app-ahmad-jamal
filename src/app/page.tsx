@@ -12,18 +12,18 @@ const Todo = () => {
     e.preventDefault();
     if (editIndex !== null) {
       const updatedTasks = mainTask.map((task, index) =>
-        index === editIndex ? { title, desc } : task
+        index === editIndex ? { title , desc } : task
       );
       setMainTask(updatedTasks);
       setEditIndex(null);
     } else {
-      setMainTask([...mainTask, { title, desc}]);
+      setMainTask([...mainTask, {title, desc}]);
     }
     setTitle("");
     setDesc("");
   };
 
-  const editHandler = (index) => {
+  const editHandler = (index:any) => {
     setTitle(mainTask[index].title);
     setDesc(mainTask[index].desc);
     setEditIndex(index);
