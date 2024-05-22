@@ -5,9 +5,14 @@ import React, { useState } from "react";
 const Todo = () => {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
-  const [mainTask, setMainTask] = useState([]);
+  const [mainTask, setMainTask] = useState<Task[]>([]);
   const [editIndex, setEditIndex] = useState(null);
 
+  interface Task {
+    title: string;
+    desc: string;
+  }
+  
   const submitHandler = (e:any) => {
     e.preventDefault();
     if (editIndex !== null) {
@@ -20,7 +25,7 @@ const Todo = () => {
       setMainTask([...mainTask, {title, desc}]);
     }
     setTitle("");
-    setDesc("");
+    setDesc(""); 
   };
 
   const editHandler = (index:any) => {
